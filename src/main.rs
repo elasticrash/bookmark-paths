@@ -8,8 +8,12 @@ fn main() {
     let matches = Command::new("bookmark-paths")
         .version("1.0")
         .author("Stefanos Kouroupis")
-        .about("Bookmark paths and Navigates through them")
-        .subcommand(Command::new("add").about("Add a new path"))
+        .about(format!(
+            "{}\n{}",
+            "Creating bookmarks for specific paths in the Linux Bash filesystem",
+            "and effortlessly navigating between them."
+        ))
+        .subcommand(Command::new("add").about("Adds a new path"))
         .subcommand(
             Command::new("remove")
                 .about("Remove a new path")
@@ -29,6 +33,8 @@ fn main() {
         "/.config/.bookmark-paths"
     );
 
+    // Creates a new bookmark.
+    // Creates the configuration file if it doesn't exist.
     if let Some(_matches) = matches.subcommand_matches("add") {
         let mut ffw = get_file_db(false, &file);
         let out = Cmd::new("pwd")
@@ -50,6 +56,7 @@ fn main() {
         }
     }
 
+    // Removes a bookmark.
     if let Some(matches) = matches.subcommand_matches("remove") {
         let ffw = get_file_db(false, &file);
         let reader = BufReader::new(&ffw);
@@ -67,6 +74,7 @@ fn main() {
         }
     }
 
+    // Lists all bookmarks.
     if let Some(_matches) = matches.subcommand_matches("list") {
         let ffw = get_file_db(false, &file);
         let reader = BufReader::new(&ffw);
@@ -76,6 +84,9 @@ fn main() {
         }
     }
 
+    // Displays a bookmark.
+    // in order to navigate to it. you need to do
+    // cd $(bmk go <INDEX>)
     if let Some(matches) = matches.subcommand_matches("go") {
         let ffw = get_file_db(false, &file);
         let reader = BufReader::new(&ffw);
@@ -87,6 +98,8 @@ fn main() {
     }
 }
 
+// Gets the file descriptor. With diffennt configurations,
+// depending on the use case.
 fn get_file_db(rem: bool, file: &str) -> std::fs::File {
     if !rem {
         if Path::new(&file).exists() {
