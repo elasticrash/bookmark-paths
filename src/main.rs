@@ -70,7 +70,7 @@ fn main() {
 
         let mut fft = get_file_db(true, &file);
         for line in keep {
-            fft.write_all(line.as_bytes()).unwrap();
+            writeln!(fft, "{}", line).unwrap();
         }
     }
 
