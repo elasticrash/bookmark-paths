@@ -1,4 +1,7 @@
 # bmk (bookmark-path manager)
+
+bmk is a cli tool for managing directory paths. It allows you to bookmark frequently used paths, remove them when no longer needed, and quickly navigate to your saved locations. If you feel adventurous you can commit the config as a dot file.
+
 This is a personal tool. You are free to use and that's it.
 
 ## Usage
