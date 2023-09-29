@@ -6,6 +6,7 @@ categories = ["development-tools", "productivity-tools", "command-line-utilities
 readme = "README.md"
 repository = "https://github.com/elasticrash/bookmark-paths"
 keywords = ["path", "manage"]
+authors = ["Stefanos Kouroupis <s.kouroupis@voidmachines.com>"]
 license = "MIT"
 
 [[bin]]
