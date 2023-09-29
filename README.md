@@ -13,8 +13,8 @@ Since I don't provide binaries, you need to have Rust installed in your system i
 * Build the project `cargo build --release`
 * Move the binary to usr/local/bin
 ### Cargo
-
-well just do `cargo install bmk`
+or just do `cargo install bmk`
+in this case, though, make sure that `~/.cargo/bin/` is in your `PATH` variable
 
 ## Usage
 * `bmk add` adds the current path to the list of bookmarks

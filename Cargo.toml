@@ -1,6 +1,6 @@
 [package]
 name = "bmk"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Bookmark paths and jump to them with ease"
 categories = ["development-tools", "productivity-tools", "command-line-utilities"]
